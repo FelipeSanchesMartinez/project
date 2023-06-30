@@ -8,12 +8,12 @@ import Pedido from "../modules/Pedidos/entities/Pedidos";
 
 
 export const AppDataSource = new DataSource({
-    type: "mysql",
-    host: "localhost",
-    port: 3306,
-    username: "root",
-    password: "root",
-    database: "projeto_db",
+    type:'mysql',
+    host :process.env.MYSQL_HOST,
+    port: Number(process.env.MYSQL_PORT),
+    username: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PASS,
+    database: process.env.MYSQL_DBNAME,
     synchronize: true,
     logging: false,
     entities: [Produto, Categoria,Usuario, Pedido],
